@@ -1669,12 +1669,14 @@
         }
 
         // 绑定导航按钮
-        document.querySelectorAll('.nav-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-                this.classList.add('active');
-            });
-        });
+document.querySelectorAll('.nav-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+        const page = this.dataset.page;
+        if (page) {
+            goToPage(page);
+        }
+    });
+});
 
         // ==================== 自动保存 ====================
         function autoSave() {
